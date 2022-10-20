@@ -22,6 +22,21 @@ namespace ASP.NET_Core_MVC_Intro.Controllers
             var product = _productRepository.GetProduct(id);
             return View(product);
         }
+        public IActionResult UpdateProduct(int id)
+        {
+            Product prod = _productRepository.GetProduct(id);
+            if (prod == null)
+            {
+                return View("ProductNotFound");
+            }
+            return View(prod);
+        }
+        public IActionResult UpdateProductToDatabase(Product product)
+        {
+            _productRepository.UpdateProduct(product);
+
+            return RedirectToAction("ViewProduct", new { id = product.ProductID });
+        }
 
     }
 }
