@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using ASP.NET_Core_MVC_Intro.Models;
+using System.Data.Common;
 
 namespace ASP.NET_Core_MVC_Intro
 {
@@ -8,6 +9,9 @@ namespace ASP.NET_Core_MVC_Intro
 
         public Product GetProduct(int id);
         public void UpdateProduct(Product product);
+        public void InsertProduct(Product productToInsert);
+        public IEnumerable<Category> GetCategories();
+        public Product AssignCategory();
 
     }
 }
