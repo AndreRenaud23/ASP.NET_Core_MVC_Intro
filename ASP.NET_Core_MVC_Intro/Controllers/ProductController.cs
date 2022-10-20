@@ -16,5 +16,12 @@ namespace ASP.NET_Core_MVC_Intro.Controllers
             IEnumerable<Product> products = _productRepository.GetAllProducts();
             return View(products);
         }
+
+        public IActionResult ViewProduct(int id)
+        {
+            var product = _productRepository.GetProduct(id);
+            return View(product);
+        }
+
     }
 }
